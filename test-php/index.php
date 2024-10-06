@@ -30,9 +30,17 @@
     <?php $fruits = array("Apple", "Banana", "Orange", "Grapes", "Mango");
     ?>
 
-    <pre>
+    <ul>
+        <?php foreach($fruits as $fruit) : ?>
+            <li>
+                <?=$fruit ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+
+    <!-- <pre>
         <?php print_r($fruits); ?>
-    </pre>
+    </pre> -->
 
 
 
