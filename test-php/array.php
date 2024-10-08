@@ -13,17 +13,17 @@ $x = ["x","y","z"];
 //     "isGf" => true
 // );
 
-$assoc = [
-    "myName" => "Kaung Sike",
-    "myAge" => 21,
-    "myJob" => ["student","webDeveloper"],
-    "isGf" => true
-];
+// $assoc = [
+//     "myName" => "Kaung Sike",
+//     "myAge" => 21,
+//     "myJob" => ["student","webDeveloper"],
+//     "isGf" => true
+// ];
 
 
 // print_r($assoc);
 
-print($assoc["myName"]);
+// print($assoc["myName"]);
 
 
 
@@ -34,3 +34,21 @@ print($assoc["myName"]);
 // print_r($x);
 
 // echo $array[0];
+
+
+$arr = [];
+
+$arr[0] = "a";
+$arr[2] = "b";
+$arr[3] = "c";
+
+
+// print_r($arr);
+
+$assoc = [];
+
+$assoc["name"] = "Kaung Sike";
+$assoc["age"] = 21;
+
+
+print_r($assoc);
