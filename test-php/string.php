@@ -9,9 +9,17 @@
 
 $myName = "Kaung Sike";
 
+
+// echo strlen($myName);
+
+
+echo "<h1>Kaung Sike</h1>";
+
+
+
 // echo "My name is $myName";
 // echo 'My name is $myname';
 
-$x = null;
+// $x = null;
 
-echo false;
+// echo false;
