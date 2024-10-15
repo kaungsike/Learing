@@ -1,3 +1,22 @@
+<?php
+
+// echo "<pre>";
+
+
+// var_dump(empty($_POST["width"]));
+// var_dump(empty($_POST["breadth"]));
+// var_dump(empty($_POST["calcBtn"]));
+// print_r($_POST);
+
+if (empty($_POST['width']) || empty($_POST['breadth'])) {
+    echo "";
+    die("<br><br>====== Need All Input ======");
+}
+
+
+// die("<br><br>====== finished ======");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -194,26 +213,61 @@
                         <path d="M6 13L10 3" stroke="currentColor" stroke-linecap="round"></path>
                     </svg>
                 </li>
-
+                <li class="inline-flex items-center">
+                    <a class="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500" href="./index.php">
+                        Area Calculator
+                    </a>
+                </li>
+                <svg class="shrink-0 size-5 text-gray-400 dark:text-neutral-600 mx-2" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6 13L10 3" stroke="currentColor" stroke-linecap="round"></path>
+                </svg>
                 <li class="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200" aria-current="page">
-                    Area Calculator
+                    Results
                 </li>
             </ol>
             <hr class="border-gray-500 mb-7">
 
-            <form action="./area.php" method="post">
-                <div class="mb-3">
-                    <label for="width" class="block text-sm font-medium mb-2 dark:text-white">Width</label>
-                    <input  name="width" type="number" id="width" class="outline-none py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="">
-                </div>
-                <div class="mb-5">
-                    <label for="breadth" class="block text-sm font-medium mb-2 dark:text-white">Breadth</label>
-                    <input  type="number" name="breadth" id="breadth" class="outline-none py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="">
-                </div>
-                <button name="calcBtn" type="submit" class="w-full justify-center py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none">
-                    Calculate
-                </button>
-            </form>
+            <?php
+
+
+            $width = $_POST['width'];
+            $breadth = $_POST['breadth'];
+
+
+            $area = $width * $breadth;
+
+            $fileName = 'record.txt';
+
+            if (!file_exists($fileName)) {
+                touch($fileName);
+            }
+
+
+            $fileString = fopen($fileName, 'a');
+
+            fwrite($fileString, "$width * $breadth = $area \n");
+
+
+            fclose($fileString);
+
+
+            // echo $area;
+
+            ?>
+
+            <p class="text-3xl text-center mb-5">
+                <?= $area ?> sqrt
+            </p>
+
+
+            <a href="./index.php" type="button" class="w-full justify-center mt-8 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none">
+                Calculate Again
+            </a>
+            <a href="./record-list.php" type="button" class="w-full justify-center mt-8 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none">
+                Records
+            </a>
+
+
         </section>
     </main>
 
