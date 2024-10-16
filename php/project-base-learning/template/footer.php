@@ -1,5 +1,5 @@
 </main>
-<script src="./node_modules/preline/dist/preline.js"></script>
-</body>
 
+</body>
+<script src="../node_modules/preline/dist/preline.js"></script>
 </html>

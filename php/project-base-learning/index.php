@@ -1,6 +1,6 @@
         <?php include("./template/header.php") ?>
-
         <?php include("./template/side-bar.php") ?>
+
 
 
 
@@ -37,4 +37,4 @@
             </form>
         </section>
 
-        <?php include("./template/footer.php") ?>
+        <?php include("./template/footer.php") ?> 

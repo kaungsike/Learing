@@ -47,6 +47,17 @@
 
     $result = "From " . $amount . " " . $from . " to " . $to . " = " . ($amount * $fromPair) / $toPair." ".$to;
 
+
+    $fileName = "exchange-record.txt";
+
+    if(!file_exists($fileName)){
+        touch($fileName);
+    }
+
+    $content = fopen($fileName,'a');
+
+    fwrite($content,$result."\n");
+
     ?>
 
     <p class="text-3xl text-center mb-5">
@@ -56,6 +67,9 @@
 
     <a href="./exchange.php" type="button" class="w-full justify-center mt-8 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none">
         Calculate Again
+    </a>
+    <a href="./exchange-record.php" type="button" class="w-full justify-center mt-8 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none">
+        Records
     </a>
     <!-- <a href="./record-list.php" type="button" class="w-full justify-center mt-8 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none">
         Records
