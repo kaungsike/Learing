@@ -19,11 +19,16 @@
 <section class="bg-gray-100 p-16 rounded-lg mt-5">
     <p class="text-center text-2xl mb-3">Uploaded Photoes</p>
     <?php
-        $photoes = scandir('photo');
+        $photoes = array_filter(scandir('photo'), fn ($el) => $el != '.' && $el != '..');
     ?>
     <div class="grid grid-cols-2 gap-3">
         <?php foreach($photoes as $photo): ?>
-            <img src="./photo/<?=$photo ?>" alt="">
+<div class="flex flex-col items-center gap-3">
+<img class="rounded" src="./photo/<?=$photo ?>" alt="">
+<a href="./gallery-photo-delete.php?file_name=<?=$photo ?>" type="button" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-red-500 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+  Delete
+        </a>
+</div>
         <?php endforeach; ?>
     </div>
 
