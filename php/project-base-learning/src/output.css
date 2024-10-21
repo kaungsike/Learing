@@ -845,36 +845,20 @@ video {
   width: 16rem;
 }
 
+.w-\[170px\] {
+  width: 170px;
+}
+
+.w-\[70px\] {
+  width: 70px;
+}
+
 .w-\[calc\(100\%-2rem\)\] {
   width: calc(100% - 2rem);
 }
 
 .w-full {
   width: 100%;
-}
-
-.w-\[100px\] {
-  width: 100px;
-}
-
-.w-\[150px\] {
-  width: 150px;
-}
-
-.w-\[170px\] {
-  width: 170px;
-}
-
-.w-\[\] {
-  width: ;
-}
-
-.w-\[50px\] {
-  width: 50px;
-}
-
-.w-\[70px\] {
-  width: 70px;
 }
 
 .min-w-full {
